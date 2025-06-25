@@ -1,0 +1,149 @@
+/* 🔷 Navbar Main Container */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #0f172a;
+  padding: 0.75rem 1.5rem;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* 🔹 Brand Title */
+.navbar-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #facc15;
+  font-family: cursive;
+  order: 1; /* Left position */
+}
+
+/* 🔹 Header container for mobile */
+.navbar-header {
+  display: contents; /* Invisible in desktop - elements flow normally */
+}
+
+/* 🔹 Links (centered in desktop) */
+.navbar-center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  order: 2; /* Middle position */
+}
+
+.navbar-center a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+
+.navbar-center a:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* 🔹 Right Side (cart + toggle) */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  order: 3; /* Right position */
+}
+
+/* Cart */
+.navbar-cart {
+  position: relative;
+  font-size: 22px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.cart-badge {
+  position: absolute;
+  top: -6px;
+  right: -8px;
+  background: red;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+/* Toggle (hidden in desktop) */
+.navbar-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* 🔸 Mobile Styles */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 1rem;
+  }
+
+  /* Reset order for mobile - use header container instead */
+  .navbar-title {
+    font-size: 20px;
+    order: initial;
+  }
+
+  .navbar-center {
+    order: initial;
+  }
+
+  .navbar-right {
+    order: initial;
+  }
+
+  /* Header row: title left, cart+toggle right */
+  .navbar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  .navbar-toggle {
+    display: block;
+  }
+
+  /* Navigation links - hidden by default, centered when shown */
+  .navbar-center {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 15px;
+    gap: 0;
+  }
+
+  .navbar-center.active {
+    display: flex;
+  }
+
+  .navbar-center a {
+    width: 100%;
+    padding: 12px 15px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .navbar-center a:last-child {
+    border-bottom: none;
+  }
+}
