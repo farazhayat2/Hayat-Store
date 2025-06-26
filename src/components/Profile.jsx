@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth, db } from "../Firebase/Firebase";
 import { doc, getDoc } from "firebase/firestore";
-import "./Profile.css"; // Make sure to create this CSS file
+import "./profile.css"; // Make sure to create this CSS file
 
 function Profile() {
   const [userData, setUserData] = useState(null);
